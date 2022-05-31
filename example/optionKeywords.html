@@ -1,416 +1,861 @@
 <html>
-    <head>
-        <meta charset="utf-8">
-        <script src='https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js'></script>
 
-        <!-- <script src="../../echarts/dist/echarts.js"></script> -->
-        <script src='../dist/echarts-wordcloud.js'></script>
-    </head>
-    <body>
-        <style>
-            html, body, #main {
-                width: 100%;
-                height: 100%;
-                margin: 0;
+<head>
+    <meta charset="utf-8">
+    <script src='https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js'></script>
+    <script src='../dist/echarts-wordcloud.js'></script>
+</head>
+
+<body>
+    <h1 class="title">用技术助力公益，让代码更有温度</h1>
+    <div id='main'>
+    </div>
+    <style>
+        html,
+        body,
+        #main {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            /* background:#000; */
+        }
+
+        #main{
+            margin-top: -100px;
+        }
+
+        .title{
+            color: #3f62e8;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 60px;
+        }
+    </style>
+    <script>
+        var chart = echarts.init(document.getElementById('main'));
+       
+        const data = [
+            {
+                "name": "小小橘子",
+                "value": 4.242640687119285
+            },
+            {
+                "name": "叶一一",
+                "value": 4
+            },
+            {
+                "name": "皮卡丘只有一只耳朵",
+                "value": 4
+            },
+            {
+                "name": "BUG预言家",
+                "value": 4
+            },
+            {
+                "name": "小小喵",
+                "value": 4
+            },
+            {
+                "name": "Little_Bear",
+                "value": 4
+            },
+            {
+                "name": "周帅帅",
+                "value": 4
+            },
+            {
+                "name": "CharlesPAter",
+                "value": 4
+            },
+            {
+                "name": "金枪小魔王",
+                "value": 4
+            },
+            {
+                "name": "乘风破浪重名了",
+                "value": 4
+            },
+            {
+                "name": "希望夏天的风",
+                "value": 4
+            },
+            {
+                "name": "用户49910774942",
+                "value": 4
+            },
+            {
+                "name": "Read62990",
+                "value": 4
+            },
+            {
+                "name": "内推找我",
+                "value": 4
+            },
+            {
+                "name": "effortit",
+                "value": 4
+            },
+            {
+                "name": "阿怪没有脑袋",
+                "value": 4
+            },
+            {
+                "name": "_.正在输入〆",
+                "value": 3.872983346207417
+            },
+            {
+                "name": "前端打工仔仔",
+                "value": 3.872983346207417
+            },
+            {
+                "name": "luckxl",
+                "value": 3.7416573867739413
+            },
+            {
+                "name": "一起鸭",
+                "value": 3.7416573867739413
+            },
+            {
+                "name": "张大胖",
+                "value": 3.7416573867739413
+            },
+            {
+                "name": "Drive",
+                "value": 3.7416573867739413
+            },
+            {
+                "name": "megamind",
+                "value": 3.7416573867739413
+            },
+            {
+                "name": "胆大如牛白展堂",
+                "value": 3.7416573867739413
+            },
+            {
+                "name": "星黛露露",
+                "value": 3.7416573867739413
+            },
+            {
+                "name": "僧系码农",
+                "value": 3.7416573867739413
+            },
+            {
+                "name": "打工人在掘金",
+                "value": 3.7416573867739413
+            },
+            {
+                "name": "饼饼zi",
+                "value": 3.7416573867739413
+            },
+            {
+                "name": "琅琊问天",
+                "value": 3.7416573867739413
+            },
+            {
+                "name": "瑞星or星巴克",
+                "value": 3.7416573867739413
+            },
+            {
+                "name": "前端包工头",
+                "value": 3.7416573867739413
+            },
+            {
+                "name": "大神段位的小众开发",
+                "value": 3.605551275463989
+            },
+            {
+                "name": "Junkman丶",
+                "value": 3.605551275463989
+            },
+            {
+                "name": "用户1878611221281",
+                "value": 3.605551275463989
+            },
+            {
+                "name": "答案cp3",
+                "value": 3.605551275463989
+            },
+            {
+                "name": "用户2360784665794",
+                "value": 3.605551275463989
+            },
+            {
+                "name": "vileewills",
+                "value": 3.605551275463989
+            },
+            {
+                "name": "手可摘棉花",
+                "value": 3.605551275463989
+            },
+            {
+                "name": "用户5334355002960",
+                "value": 3.605551275463989
+            },
+            {
+                "name": "橙子西瓜菠萝",
+                "value": 3.605551275463989
+            },
+            {
+                "name": "前端新生",
+                "value": 3.605551275463989
+            },
+            {
+                "name": "菜鸟bar",
+                "value": 3.605551275463989
+            },
+            {
+                "name": "麻烦给我一杯可乐",
+                "value": 3.605551275463989
+            },
+            {
+                "name": "职业搬砖工",
+                "value": 3.4641016151377544
+            },
+            {
+                "name": "菜逼善意",
+                "value": 3.4641016151377544
+            },
+            {
+                "name": "改名也不中奖",
+                "value": 3.4641016151377544
+            },
+            {
+                "name": "你太有才了",
+                "value": 3.4641016151377544
+            },
+            {
+                "name": "LLzzZZ",
+                "value": 3.4641016151377544
+            },
+            {
+                "name": "前端打工人",
+                "value": 3.4641016151377544
+            },
+            {
+                "name": "保持蛙笑",
+                "value": 3.4641016151377544
+            },
+            {
+                "name": "新垣结衣老公本人",
+                "value": 3.4641016151377544
+            },
+            {
+                "name": "大鬼丫",
+                "value": 3.4641016151377544
+            },
+            {
+                "name": "用户2069434974968",
+                "value": 3.4641016151377544
+            },
+            {
+                "name": "走心的惜爱",
+                "value": 3.4641016151377544
+            },
+            {
+                "name": "最厉害的菜鸡",
+                "value": 3.4641016151377544
+            },
+            {
+                "name": "hzlei",
+                "value": 3.4641016151377544
+            },
+            {
+                "name": "芒芒哈哈",
+                "value": 3.4641016151377544
+            },
+            {
+                "name": "白日梦想家_",
+                "value": 3.4641016151377544
+            },
+            {
+                "name": "奔跑的水瓜",
+                "value": 3.4641016151377544
+            },
+            {
+                "name": "小政",
+                "value": 3.4641016151377544
+            },
+            {
+                "name": "biubiu不想说话",
+                "value": 3.4641016151377544
+            },
+            {
+                "name": "大江妹子",
+                "value": 3.4641016151377544
+            },
+            {
+                "name": "shinn_lancelot",
+                "value": 3.4641016151377544
+            },
+            {
+                "name": "狂奔ing__蜗牛",
+                "value": 3.4641016151377544
+            },
+            {
+                "name": "南极大冰块",
+                "value": 3.4641016151377544
+            },
+            {
+                "name": "春春0613",
+                "value": 3.4641016151377544
+            },
+            {
+                "name": "我的用户名",
+                "value": 3.4641016151377544
+            },
+            {
+                "name": "进度条",
+                "value": 3.1622776601683795
+            },
+            {
+                "name": "向往960",
+                "value": 3
+            },
+            {
+                "name": "Poppie",
+                "value": 2.8284271247461903
+            },
+            {
+                "name": "登山者",
+                "value": 2.8284271247461903
+            },
+            {
+                "name": "jsmask",
+                "value": 2.8284271247461903
+            },
+            {
+                "name": "黑暗迪迦",
+                "value": 2.8284271247461903
+            },
+            {
+                "name": "abicdia",
+                "value": 2.8284271247461903
+            },
+            {
+                "name": "卷王之王",
+                "value": 2.8284271247461903
+            },
+            {
+                "name": "啾啾哼",
+                "value": 2.8284271247461903
+            },
+            {
+                "name": "Quasimodo",
+                "value": 2.8284271247461903
+            },
+            {
+                "name": "南城FE",
+                "value": 2.8284271247461903
+            },
+            {
+                "name": "Mr_Carl",
+                "value": 2.6457513110645907
+            },
+            {
+                "name": "OnePsycho",
+                "value": 2.6457513110645907
+            },
+            {
+                "name": "骑着Tomcat的靓仔",
+                "value": 2.6457513110645907
+            },
+            {
+                "name": "郑丫头",
+                "value": 2.449489742783178
+            },
+            {
+                "name": "朴正欢",
+                "value": 2.449489742783178
+            },
+            {
+                "name": "Lostvita",
+                "value": 2.449489742783178
+            },
+            {
+                "name": "codeniu",
+                "value": 2.449489742783178
+            },
+            {
+                "name": "小鲸鱼mm",
+                "value": 2.449489742783178
+            },
+            {
+                "name": "微信转账三百块",
+                "value": 2.449489742783178
+            },
+            {
+                "name": "Kis_",
+                "value": 2.449489742783178
+            },
+            {
+                "name": "佯奋",
+                "value": 2.449489742783178
+            },
+            {
+                "name": "爱掘金的祢豆子",
+                "value": 2.449489742783178
+            },
+            {
+                "name": "膨胀的程序员",
+                "value": 2.449489742783178
+            },
+            {
+                "name": "TheWQ",
+                "value": 2.23606797749979
+            },
+            {
+                "name": "Devil",
+                "value": 2.23606797749979
+            },
+            {
+                "name": "lieber",
+                "value": 2.23606797749979
+            },
+            {
+                "name": "一只前端小菜鸡",
+                "value": 2.23606797749979
+            },
+            {
+                "name": "FuncJin",
+                "value": 2
+            },
+            {
+                "name": "Tomorrowed",
+                "value": 2
+            },
+            {
+                "name": "是婷婷呀",
+                "value": 2
+            },
+            {
+                "name": "NikolaJokic",
+                "value": 2
+            },
+            {
+                "name": "蜡笔小新喔",
+                "value": 2
+            },
+            {
+                "name": "WytheChan",
+                "value": 1.7320508075688772
+            },
+            {
+                "name": "张建宏",
+                "value": 1.7320508075688772
+            },
+            {
+                "name": "烦死了1",
+                "value": 1.7320508075688772
+            },
+            {
+                "name": "-随遇而安",
+                "value": 1.7320508075688772
+            },
+            {
+                "name": "听我说谢谢你",
+                "value": 1.4142135623730951
+            },
+            {
+                "name": "胡哥有话说",
+                "value": 1.4142135623730951
+            },
+            {
+                "name": "张国荣南京分荣",
+                "value": 1.4142135623730951
+            },
+            {
+                "name": "遗忘的沙漠胡杨",
+                "value": 1.4142135623730951
+            },
+            {
+                "name": "一根独秀",
+                "value": 1.4142135623730951
+            },
+            {
+                "name": "orangleLi",
+                "value": 1.4142135623730951
+            },
+            {
+                "name": "故园飞雪",
+                "value": 1.4142135623730951
+            },
+            {
+                "name": "我是修行千年的Interface",
+                "value": 1.4142135623730951
+            },
+            {
+                "name": "用户2657954798076",
+                "value": 1.4142135623730951
+            },
+            {
+                "name": "知见秋",
+                "value": 1.4142135623730951
+            },
+            {
+                "name": "humbert",
+                "value": 1.4142135623730951
+            },
+            {
+                "name": "小騎士",
+                "value": 1.4142135623730951
+            },
+            {
+                "name": "xxxxxxxxxxxxxxxxxxx",
+                "value": 1.4142135623730951
+            },
+            {
+                "name": "LaughingDangZi",
+                "value": 1.4142135623730951
+            },
+            {
+                "name": "羊唯一",
+                "value": 1.4142135623730951
+            },
+            {
+                "name": "不会有烟花的",
+                "value": 1.4142135623730951
+            },
+            {
+                "name": "黑白配",
+                "value": 1.4142135623730951
+            },
+            {
+                "name": "黑客松",
+                "value": 1.4142135623730951
+            },
+            {
+                "name": "菜鸡的日常",
+                "value": 1
+            },
+            {
+                "name": "与雾过冬天",
+                "value": 1
+            },
+            {
+                "name": "你在想",
+                "value": 1
+            },
+            {
+                "name": "道道里",
+                "value": 1
+            },
+            {
+                "name": "大可木",
+                "value": 1
+            },
+            {
+                "name": "小鱼儿们",
+                "value": 1
+            },
+            {
+                "name": "前端市界",
+                "value": 1
+            },
+            {
+                "name": "十九_",
+                "value": 1
+            },
+            {
+                "name": "骑着蚂蚁打大象",
+                "value": 1
+            },
+            {
+                "name": "猪痞恶霸",
+                "value": 1
+            },
+            {
+                "name": "6666666666666",
+                "value": 1
+            },
+            {
+                "name": "Harry",
+                "value": 1
+            },
+            {
+                "name": "Weiii",
+                "value": 1
+            },
+            {
+                "name": "把西红柿变成番茄_o",
+                "value": 1
+            },
+            {
+                "name": "迷失幻境",
+                "value": 1
+            },
+            {
+                "name": "哎哟不错哟",
+                "value": 1
+            },
+            {
+                "name": "外包之星",
+                "value": 1
+            },
+            {
+                "name": "奔跑吧鸡翅",
+                "value": 1
+            },
+            {
+                "name": "My2538772270",
+                "value": 1
+            },
+            {
+                "name": "CYQ的理想三旬",
+                "value": 1
+            },
+            {
+                "name": "拾山",
+                "value": 1
+            },
+            {
+                "name": "你也喜欢河马嘛",
+                "value": 1
+            },
+            {
+                "name": "木木止月",
+                "value": 1
+            },
+            {
+                "name": "前端渣渣波",
+                "value": 1
+            },
+            {
+                "name": "芝士莓梅",
+                "value": 1
+            },
+            {
+                "name": "exception",
+                "value": 1
+            },
+            {
+                "name": "从起风了到那个夏天",
+                "value": 1
+            },
+            {
+                "name": "红毛丹",
+                "value": 1
+            },
+            {
+                "name": "AnLingYi",
+                "value": 1
+            },
+            {
+                "name": "PrinceJack",
+                "value": 1
+            },
+            {
+                "name": "用户3582729164773",
+                "value": 1
+            },
+            {
+                "name": "拾铃",
+                "value": 1
+            },
+            {
+                "name": "相思碎",
+                "value": 1
+            },
+            {
+                "name": "小刘爱睡觉",
+                "value": 1
+            },
+            {
+                "name": "realllllll_mino",
+                "value": 1
+            },
+            {
+                "name": "今天超市大减价",
+                "value": 1
+            },
+            {
+                "name": "哇蓝蓝",
+                "value": 1
+            },
+            {
+                "name": "ruiban",
+                "value": 1
+            },
+            {
+                "name": "章鱼丸子头",
+                "value": 1
+            },
+            {
+                "name": "芜念",
+                "value": 1
+            },
+            {
+                "name": "dragonir",
+                "value": 1
+            },
+            {
+                "name": "迦南ny",
+                "value": 1
+            },
+            {
+                "name": "站着",
+                "value": 1
+            },
+            {
+                "name": "想困觉的发蝴蝶",
+                "value": 1
+            },
+            {
+                "name": "啊湫",
+                "value": 1
+            },
+            {
+                "name": "掘金WindTalker",
+                "value": 1
+            },
+            {
+                "name": "知溪",
+                "value": 1
+            },
+            {
+                "name": "魅力掘金",
+                "value": 1
+            },
+            {
+                "name": "南方者",
+                "value": 1
+            },
+            {
+                "name": "皮皮范",
+                "value": 1
+            },
+            {
+                "name": "明无生",
+                "value": 1
+            },
+            {
+                "name": "娄乂",
+                "value": 1
+            },
+            {
+                "name": "滑稽点",
+                "value": 1
+            },
+            {
+                "name": "CoderX",
+                "value": 1
+            },
+            {
+                "name": "庇耳拉海莱",
+                "value": 1
+            },
+            {
+                "name": "JustCompThin",
+                "value": 1
+            },
+            {
+                "name": "后端小菜鸡",
+                "value": 1
+            },
+            {
+                "name": "白海",
+                "value": 1
+            },
+            {
+                "name": "小鱼儿的快乐生活",
+                "value": 1
+            },
+            {
+                "name": "干饭了鸭",
+                "value": 1
+            },
+            {
+                "name": "繁间不授梦",
+                "value": 1
+            },
+            {
+                "name": "墨海",
+                "value": 1
+            },
+            {
+                "name": "好帅的舅舅",
+                "value": 1
+            },
+            {
+                "name": "嘴角上翘",
+                "value": 1
+            },
+            {
+                "name": "_吃",
+                "value": 1
+            },
+            {
+                "name": "lin嘟嘟嘟",
+                "value": 1
+            },
+            {
+                "name": "嘻嘻哈哈112",
+                "value": 1
+            },
+            {
+                "name": "天天一码",
+                "value": 1
+            },
+            {
+                "name": "战场小包",
+                "value": 1
+            },
+            {
+                "name": "前端西奥",
+                "value": 1
+            },
+            {
+                "name": "fairyly",
+                "value": 1
             }
-        </style>
-        <div id='main'></div>
-        <script>
-            var chart = echarts.init(document.getElementById('main'));
+        ]
 
-            var keywords = {
-              "visualMap": 22199,
-              "continuous": 10288,
-              "contoller": 620,
-              "series": 274470,
-              "gauge": 12311,
-              "detail": 1206,
-              "piecewise": 4885,
-              "textStyle": 32294,
-              "markPoint": 18574,
-              "pie": 38929,
-              "roseType": 969,
-              "label": 37517,
-              "emphasis": 12053,
-              "yAxis": 57299,
-              "name": 15418,
-              "type": 22905,
-              "gridIndex": 5146,
-              "normal": 49487,
-              "itemStyle": 33837,
-              "min": 4500,
-              "silent": 5744,
-              "animation": 4840,
-              "offsetCenter": 232,
-              "inverse": 3706,
-              "borderColor": 4812,
-              "markLine": 16578,
-              "line": 76970,
-              "radiusAxis": 6704,
-              "radar": 15964,
-              "data": 60679,
-              "dataZoom": 24347,
-              "tooltip": 43420,
-              "toolbox": 25222,
-              "geo": 16904,
-              "parallelAxis": 4029,
-              "parallel": 5319,
-              "max": 3393,
-              "bar": 43066,
-              "heatmap": 3110,
-              "map": 20285,
-              "animationDuration": 3425,
-              "animationDelay": 2431,
-              "splitNumber": 5175,
-              "axisLine": 12738,
-              "lineStyle": 19601,
-              "splitLine": 7133,
-              "axisTick": 8831,
-              "axisLabel": 17516,
-              "pointer": 590,
-              "color": 23426,
-              "title": 38497,
-              "formatter": 15214,
-              "slider": 7236,
-              "legend": 66514,
-              "grid": 28516,
-              "smooth": 1295,
-              "smoothMonotone": 696,
-              "sampling": 757,
-              "feature": 12815,
-              "saveAsImage": 2616,
-              "polar": 6279,
-              "calculable": 879,
-              "backgroundColor": 9419,
-              "excludeComponents": 130,
-              "show": 20620,
-              "text": 2592,
-              "icon": 2782,
-              "dimension": 478,
-              "inRange": 1060,
-              "animationEasing": 2983,
-              "animationDurationUpdate": 2259,
-              "animationDelayUpdate": 2236,
-              "animationEasingUpdate": 2213,
-              "xAxis": 89459,
-              "angleAxis": 5469,
-              "showTitle": 484,
-              "dataView": 2754,
-              "restore": 932,
-              "timeline": 10104,
-              "range": 477,
-              "value": 5732,
-              "precision": 878,
-              "target": 1433,
-              "zlevel": 5361,
-              "symbol": 8718,
-              "interval": 7964,
-              "symbolSize": 5300,
-              "showSymbol": 1247,
-              "inside": 8913,
-              "xAxisIndex": 3843,
-              "orient": 4205,
-              "boundaryGap": 5073,
-              "nameGap": 4896,
-              "zoomLock": 571,
-              "hoverAnimation": 2307,
-              "legendHoverLink": 3553,
-              "stack": 2907,
-              "throttle": 466,
-              "connectNulls": 897,
-              "clipOverflow": 826,
-              "startValue": 551,
-              "minInterval": 3292,
-              "opacity": 3097,
-              "splitArea": 4775,
-              "filterMode": 635,
-              "end": 409,
-              "left": 6475,
-              "funnel": 2238,
-              "lines": 6403,
-              "baseline": 431,
-              "align": 2608,
-              "coord": 897,
-              "nameTextStyle": 7477,
-              "width": 4338,
-              "shadowBlur": 4493,
-              "effect": 929,
-              "period": 225,
-              "areaColor": 631,
-              "borderWidth": 3654,
-              "nameLocation": 4418,
-              "position": 11723,
-              "containLabel": 1701,
-              "scatter": 10718,
-              "areaStyle": 5310,
-              "scale": 3859,
-              "pieces": 414,
-              "categories": 1000,
-              "selectedMode": 3825,
-              "itemSymbol": 273,
-              "effectScatter": 7147,
-              "fontStyle": 3376,
-              "fontSize": 3386,
-              "margin": 1034,
-              "iconStyle": 2257,
-              "link": 1366,
-              "axisPointer": 5245,
-              "showDelay": 896,
-              "graph": 22194,
-              "subtext": 1442,
-              "selected": 2881,
-              "barCategoryGap": 827,
-              "barGap": 1094,
-              "barWidth": 1521,
-              "coordinateSystem": 3622,
-              "barBorderRadius": 284,
-              "z": 4014,
-              "polarIndex": 1456,
-              "shadowOffsetX": 3046,
-              "shadowColor": 3771,
-              "shadowOffsetY": 2475,
-              "height": 1988,
-              "barMinHeight": 575,
-              "lang": 131,
-              "symbolRotate": 2752,
-              "symbolOffset": 2549,
-              "showAllSymbol": 942,
-              "transitionDuration": 993,
-              "bottom": 3724,
-              "fillerColor": 229,
-              "nameMap": 1249,
-              "barMaxWidth": 747,
-              "radius": 2103,
-              "center": 2425,
-              "magicType": 3276,
-              "labelPrecision": 248,
-              "option": 654,
-              "seriesIndex": 935,
-              "controlPosition": 121,
-              "itemGap": 3188,
-              "padding": 3481,
-              "shadowStyle": 347,
-              "boxplot": 1394,
-              "labelFormatter": 264,
-              "realtime": 631,
-              "dataBackgroundColor": 239,
-              "showDetail": 247,
-              "showDataShadow": 217,
-              "x": 684,
-              "valueDim": 499,
-              "onZero": 931,
-              "right": 3255,
-              "clockwise": 1035,
-              "itemWidth": 1732,
-              "trigger": 3840,
-              "axis": 379,
-              "selectedOffset": 670,
-              "startAngle": 1293,
-              "minAngle": 590,
-              "top": 4637,
-              "avoidLabelOverlap": 870,
-              "labelLine": 3785,
-              "sankey": 2933,
-              "endAngle": 213,
-              "start": 779,
-              "roam": 1738,
-              "fontWeight": 2828,
-              "fontFamily": 2490,
-              "subtextStyle": 2066,
-              "indicator": 853,
-              "sublink": 708,
-              "zoom": 1038,
-              "subtarget": 659,
-              "length": 1060,
-              "itemSize": 505,
-              "controlStyle": 452,
-              "yAxisIndex": 2529,
-              "edgeLabel": 1188,
-              "radiusAxisIndex": 354,
-              "scaleLimit": 1313,
-              "geoIndex": 535,
-              "regions": 1892,
-              "itemHeight": 1290,
-              "nodes": 644,
-              "candlestick": 3166,
-              "crossStyle": 466,
-              "edges": 369,
-              "links": 3277,
-              "layout": 846,
-              "barBorderColor": 721,
-              "barBorderWidth": 498,
-              "treemap": 3865,
-              "y": 367,
-              "valueIndex": 704,
-              "showLegendSymbol": 482,
-              "mapValueCalculation": 492,
-              "optionToContent": 264,
-              "handleColor": 187,
-              "handleSize": 271,
-              "showContent": 1853,
-              "angleAxisIndex": 406,
-              "endValue": 327,
-              "triggerOn": 1720,
-              "contentToOption": 169,
-              "buttonColor": 71,
-              "rotate": 1144,
-              "hoverLink": 335,
-              "outOfRange": 491,
-              "textareaColor": 58,
-              "textareaBorderColor": 58,
-              "textColor": 60,
-              "buttonTextColor": 66,
-              "category": 336,
-              "hideDelay": 786,
-              "alwaysShowContent": 1267,
-              "extraCssText": 901,
-              "effectType": 277,
-              "force": 1820,
-              "rippleEffect": 723,
-              "edgeSymbolSize": 329,
-              "showEffectOn": 271,
-              "gravity": 199,
-              "edgeLength": 193,
-              "layoutAnimation": 152,
-              "length2": 169,
-              "enterable": 957,
-              "dim": 83,
-              "readOnly": 143,
-              "levels": 444,
-              "textGap": 256,
-              "pixelRatio": 84,
-              "nodeScaleRatio": 232,
-              "draggable": 249,
-              "brushType": 158,
-              "radarIndex": 152,
-              "large": 182,
-              "edgeSymbol": 675,
-              "largeThreshold": 132,
-              "leafDepth": 73,
-              "childrenVisibleMin": 73,
-              "minSize": 35,
-              "maxSize": 35,
-              "sort": 90,
-              "funnelAlign": 61,
-              "source": 336,
-              "nodeClick": 200,
-              "curveness": 350,
-              "areaSelectStyle": 104,
-              "parallelIndex": 52,
-              "initLayout": 359,
-              "trailLength": 116,
-              "boxWidth": 20,
-              "back": 53,
-              "rewind": 110,
-              "zoomToNodeRatio": 80,
-              "squareRatio": 60,
-              "parallelAxisDefault": 358,
-              "checkpointStyle": 440,
-              "nodeWidth": 49,
-              "color0": 62,
-              "layoutIterations": 56,
-              "nodeGap": 54,
-              "color(Array": 76,
-              "<string>)": 76,
-              "repulsion": 276,
-              "tiled": 105,
-              "currentIndex": 145,
-              "axisType": 227,
-              "loop": 97,
-              "playInterval": 112,
-              "borderColor0": 23,
-              "gap": 43,
-              "autoPlay": 123,
-              "showPlayBtn": 25,
-              "breadcrumb": 119,
-              "colorMappingBy": 85,
-              "id": 18,
-              "blurSize": 85,
-              "minOpacity": 50,
-              "maxOpacity": 54,
-              "prevIcon": 12,
-              "children": 21,
-              "shape": 98,
-              "nextIcon": 12,
-              "showNextBtn": 17,
-              "stopIcon": 21,
-              "visibleMin": 83,
-              "visualDimension": 97,
-              "colorSaturation": 56,
-              "colorAlpha": 66,
-              "emptyItemWidth": 10,
-              "inactiveOpacity": 4,
-              "activeOpacity": 4,
-              "showPrevBtn": 19,
-              "playIcon": 26,
-              "ellipsis": 19,
-              "gapWidth": 19,
-              "borderColorSaturation": 10,
-              "handleIcon": 2,
-              "handleStyle": 6,
-              "borderType": 1,
-              "constantSpeed": 1,
-              "polyline": 2,
-              "blendMode": 1,
-              "dataBackground": 1,
-              "textAlign": 1,
-              "textBaseline": 1,
-              "brush": 3
-            };
+        var maskImage = new Image();
 
-            var data = [];
-            for (var name in keywords) {
-                data.push({
-                    name: name,
-                    value: Math.sqrt(keywords[name])
-                })
-            }
-
-            var maskImage = new Image();
-
-            var option = {
-                series: [ {
-                    type: 'wordCloud',
-                    sizeRange: [4, 150],
-                    rotationRange: [0, 0],
-                    gridSize: 0,
-                    shape: 'pentagon',
-                    maskImage: maskImage,
-                    drawOutOfBound: false,
-                    // layoutAnimation: true,
-                    keepAspect: true,
+        var option = {
+            series: [{
+                type: 'wordCloud',
+                sizeRange: [10, 80],
+                rotationRange: [0, 0],
+                gridSize: 0,
+                shape: 'pentagon',
+                maskImage: maskImage,
+                drawOutOfBound: false,
+                // layoutAnimation: true,
+                keepAspect: true,
+                textStyle: {
+                    fontWeight: 'bold',
+                    // 掘金主题色 'rgb(45, 105, 246)'
+                    color: function () {
+                        return 'rgb(' + [
+                            Math.round(Math.random() * -10) + 55,
+                            Math.round(Math.random() * 10) + 95,
+                            Math.round(Math.random() * 10) + 236
+                        ].join(',') + ')';
+                    }
+                },
+                emphasis: {
                     textStyle: {
-                        fontWeight: 'bold',
-                        color: function () {
-                            return 'rgb(' + [
-                                Math.round(Math.random() * 200) + 50,
-                                Math.round(Math.random() * 50),
-                                Math.round(Math.random() * 50) + 50
-                            ].join(',') + ')';
-                        }
-                    },
-                    emphasis: {
-                        textStyle: {
-                            color: '#528'
-                        }
-                    },
-                    data: data.sort(function (a, b) {
-                        return b.value  - a.value;
-                    })
-                } ]
-            };
+                        color: '#eee'
+                    }
+                },
+                data: data.sort(function (a, b) {
+                    return b.value - a.value;
+                })
+            }]
+        };
 
-            maskImage.onload = function () {
-                option.series[0].maskImage
-                chart.setOption(option);
-            }
+        maskImage.onload = function () {
+            option.series[0].maskImage
+            chart.setOption(option);
+        }
 
-            maskImage.src = './logo.png';
+        maskImage.src = './logo-xitujuejin.png';
 
-            window.onresize = function () {
-                chart.resize();
-            }
+        window.onresize = function () {
+            chart.resize();
+        }
 
-        </script>
-    </body>
+    </script>
+</body>
+
 </html>
